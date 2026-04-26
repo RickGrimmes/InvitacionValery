@@ -2,7 +2,7 @@
   --paper: #fcebe5;
   --panel: rgba(255, 246, 248, 0.88);
   --gold: #d4b16a;
-  --rose: #c26b8e; 
+  --rose: #c26b8e;
   --ink: #3f2b2f;
   --muted: #6f555e;
   --line: rgba(198, 157, 80, 0.55);
@@ -76,16 +76,14 @@ body {
   margin: 0 0 clamp(14px, 1.4vw, 24px);
   font-family: "Great Vibes", cursive;
   color: #b48a2f;
-  background: linear-gradient(
-    100deg,
-    #6f4f10 0%,
-    #a9781a 18%,
-    #cfa547 32%,
-    #ad7b18 48%,
-    #d8b55b 58%,
-    #956614 74%,
-    #6f4f10 100%
-  );
+  background: linear-gradient(100deg,
+      #6f4f10 0%,
+      #a9781a 18%,
+      #cfa547 32%,
+      #ad7b18 48%,
+      #d8b55b 58%,
+      #956614 74%,
+      #6f4f10 100%);
   background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -111,16 +109,14 @@ body {
   margin: 0;
   font-family: "Great Vibes", cursive;
   color: #cc6f95;
-  background: linear-gradient(
-    100deg,
-    #7f2f5f 0%,
-    #b24d84 20%,
-    #d886b2 34%,
-    #b65287 48%,
-    #df97bf 60%,
-    #a94277 76%,
-    #7f2f5f 100%
-  );
+  background: linear-gradient(100deg,
+      #7f2f5f 0%,
+      #b24d84 20%,
+      #d886b2 34%,
+      #b65287 48%,
+      #df97bf 60%,
+      #a94277 76%,
+      #7f2f5f 100%);
   background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -144,6 +140,33 @@ body {
   font-size: clamp(3.2rem, 5.8vw, 5.2rem);
   font-weight: 700;
   line-height: 0.97;
+}
+
+.date-wrap {
+  margin: clamp(16px, 2.5vw, 32px) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1vw, 14px);
+}
+
+.date-icon {
+  width: clamp(20px, 4.5vw, 36px);
+  height: clamp(20px, 4.5vw, 36px);
+  color: #1a1a1a;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.45));
+}
+
+.date {
+  margin: 0;
+  font-family: "Playfair Display", "Cormorant Garamond", serif;
+  color: #1a1a1a;
+  font-size: clamp(1.45rem, 5.8vw, 2.3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .board {
@@ -499,6 +522,7 @@ body {
   from {
     background-position: 0% 50%;
   }
+
   to {
     background-position: 220% 50%;
   }
@@ -508,6 +532,7 @@ body {
   from {
     background-position: 0% 50%;
   }
+
   to {
     background-position: 220% 50%;
   }
@@ -926,13 +951,27 @@ body {
 
   /* Animaciones y efectos móviles */
   @keyframes mobile-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-4px);
+    }
   }
 
   @keyframes mobile-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.03); }
+
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.03);
+    }
   }
 
   .big-icon {
@@ -962,11 +1001,25 @@ body {
     animation: mobile-float 2.5s ease-in-out infinite;
   }
 
-  .palette span:nth-child(1) { animation-delay: 0s; }
-  .palette span:nth-child(2) { animation-delay: 0.15s; }
-  .palette span:nth-child(3) { animation-delay: 0.3s; }
-  .palette span:nth-child(4) { animation-delay: 0.45s; }
-  .palette span:nth-child(5) { animation-delay: 0.6s; }
+  .palette span:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .palette span:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .palette span:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .palette span:nth-child(4) {
+    animation-delay: 0.45s;
+  }
+
+  .palette span:nth-child(5) {
+    animation-delay: 0.6s;
+  }
 
   /* Hacer que cada bloque aparezca suavemente al hacer scroll (solo móvil) */
   .cell {
@@ -974,41 +1027,86 @@ body {
     transform: translateY(30px);
     transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
+
   .cell.visible {
     opacity: 1;
     transform: translateY(0);
   }
 
   /* Efecto en cascada para los textos e íconos de cada bloque */
-  .cell > * {
+  .cell>* {
     opacity: 0;
     transform: translateY(15px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  .cell.visible > * {
+
+  .cell.visible>* {
     opacity: 1;
     transform: translateY(0);
   }
-  .cell.visible > *:nth-child(1) { transition-delay: 0.1s; }
-  .cell.visible > *:nth-child(2) { transition-delay: 0.2s; }
-  .cell.visible > *:nth-child(3) { transition-delay: 0.3s; }
-  .cell.visible > *:nth-child(4) { transition-delay: 0.4s; }
-  .cell.visible > *:nth-child(5) { transition-delay: 0.5s; }
+
+  .cell.visible>*:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  .cell.visible>*:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+
+  .cell.visible>*:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+
+  .cell.visible>*:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+
+  .cell.visible>*:nth-child(5) {
+    transition-delay: 0.5s;
+  }
 
   /* Animación de entrada elegante para los textos principales (hero) al abrir la invitación */
-  .hero-copy > * {
+  .hero-copy>* {
     opacity: 0;
     animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   }
-  
+
   @keyframes fade-in-up {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  .hero-copy .lead { animation-delay: 0.2s; }
-  .hero-copy .title { animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, shimmer-gold 5.2s linear infinite; animation-delay: 0.4s, 0s; }
-  .hero-copy .subtitle { animation-delay: 0.6s; }
-  .hero-copy .name { animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, shimmer-pink 5.8s linear infinite; animation-delay: 0.8s, 0s; }
-  .hero-copy .lastname { animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, shimmer-pink 5.8s linear infinite; animation-delay: 1.0s, 0s; }
+  .hero-copy .lead {
+    animation-delay: 0.2s;
+  }
+
+  .hero-copy .title {
+    animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, shimmer-gold 5.2s linear infinite;
+    animation-delay: 0.4s, 0s;
+  }
+
+  .hero-copy .subtitle {
+    animation-delay: 0.6s;
+  }
+
+  .hero-copy .name {
+    animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, shimmer-pink 5.8s linear infinite;
+    animation-delay: 0.8s, 0s;
+  }
+
+  .hero-copy .lastname {
+    animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, shimmer-pink 5.8s linear infinite;
+    animation-delay: 1.0s, 0s;
+  }
+
+  .hero-copy .date-wrap {
+    animation-delay: 1.2s;
+  }
 }
