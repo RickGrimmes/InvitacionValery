@@ -33,6 +33,7 @@ body {
   border: none;
   overflow: hidden;
   background: var(--paper);
+  touch-action: pan-y;
 }
 
 .hero-media {
@@ -63,6 +64,7 @@ body {
   text-align: center;
   padding: clamp(20px, 3vw, 56px) clamp(12px, 2vw, 34px);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+  pointer-events: none;
 }
 
 .lead {
@@ -554,11 +556,17 @@ body {
   html,
   body {
     padding: 0;
+  }
+
+  .layout {
     overflow-x: hidden;
   }
 
   .hero-card {
     height: 100svh;
+    transform: none !important;
+    transition: none !important;
+    opacity: 1 !important;
   }
 
   .hero-copy {
