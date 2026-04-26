@@ -967,4 +967,48 @@ body {
   .palette span:nth-child(3) { animation-delay: 0.3s; }
   .palette span:nth-child(4) { animation-delay: 0.45s; }
   .palette span:nth-child(5) { animation-delay: 0.6s; }
+
+  /* Hacer que cada bloque aparezca suavemente al hacer scroll (solo móvil) */
+  .cell {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .cell.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Efecto en cascada para los textos e íconos de cada bloque */
+  .cell > * {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .cell.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .cell.visible > *:nth-child(1) { transition-delay: 0.1s; }
+  .cell.visible > *:nth-child(2) { transition-delay: 0.2s; }
+  .cell.visible > *:nth-child(3) { transition-delay: 0.3s; }
+  .cell.visible > *:nth-child(4) { transition-delay: 0.4s; }
+  .cell.visible > *:nth-child(5) { transition-delay: 0.5s; }
+
+  /* Animación de entrada elegante para los textos principales (hero) al abrir la invitación */
+  .hero-copy > * {
+    opacity: 0;
+    animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+  
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-copy .lead { animation-delay: 0.2s; }
+  .hero-copy .title { animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, shimmer-gold 5.2s linear infinite; animation-delay: 0.4s, 0s; }
+  .hero-copy .subtitle { animation-delay: 0.6s; }
+  .hero-copy .name { animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, shimmer-pink 5.8s linear infinite; animation-delay: 0.8s, 0s; }
+  .hero-copy .lastname { animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, shimmer-pink 5.8s linear infinite; animation-delay: 1.0s, 0s; }
 }

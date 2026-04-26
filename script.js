@@ -1,4 +1,4 @@
-﻿const reveals = document.querySelectorAll('.reveal');
+const reveals = document.querySelectorAll('.reveal, .cell');
 
 const observer = new IntersectionObserver(
   (entries) => {
