@@ -1,8 +1,8 @@
-﻿:root {
+:root {
   --paper: #fcebe5;
   --panel: rgba(255, 246, 248, 0.88);
   --gold: #d4b16a;
-  --rose: #c26b8e;
+  --rose: #c26b8e; 
   --ink: #3f2b2f;
   --muted: #6f555e;
   --line: rgba(198, 157, 80, 0.55);
@@ -231,7 +231,7 @@ body {
   color: #d16f98;
   font-family: "Parisienne", "Great Vibes", cursive;
   font-size: clamp(2.55rem, 4.55vw, 4.65rem);
-  font-weight: 400;
+  font-weight: bold;
   line-height: 0.92;
   text-shadow:
     0 1px 0 rgba(255, 255, 255, 0.75),
@@ -443,7 +443,7 @@ body {
   color: #5d2f43;
   background: #fcebe5;
   border-top: 1px solid rgba(198, 157, 80, 0.45);
-  padding: clamp(18px, 2.8vw, 36px) 16px clamp(22px, 3.4vw, 44px);
+  padding: clamp(18px, 2.8vw, 36px) 16px clamp(60px, 8vw, 100px);
   position: relative;
 }
 
@@ -513,7 +513,19 @@ body {
   }
 }
 
+.mobile-text {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .desktop-text {
+    display: none;
+  }
+
+  .mobile-text {
+    display: inline;
+  }
+
   html,
   body {
     padding: 0;
@@ -729,8 +741,11 @@ body {
   }
 
   .board-row-c .btn {
-    font-size: clamp(0.48rem, 2vw, 0.75rem);
-    padding: 3px 8px;
+    max-width: 58vw;
+    min-width: min(48vw, 210px);
+    margin-top: 2.4vw;
+    font-size: clamp(0.68rem, 3.2vw, 1rem);
+    padding: 6px 14px;
   }
 
   .board .cell {
@@ -908,4 +923,48 @@ body {
     min-height: 0;
     padding: 10vw 12vw 36vw;
   }
+
+  /* Animaciones y efectos móviles */
+  @keyframes mobile-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  @keyframes mobile-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+
+  .big-icon {
+    animation: mobile-float 3.5s ease-in-out infinite;
+  }
+
+  .btn {
+    animation: mobile-pulse 2.5s ease-in-out infinite;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .btn:active {
+    transform: scale(0.94) !important;
+    background-color: #f496b8;
+  }
+
+  .phone {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .phone:active {
+    transform: scale(0.94);
+    opacity: 0.7;
+  }
+
+  .palette span {
+    animation: mobile-float 2.5s ease-in-out infinite;
+  }
+
+  .palette span:nth-child(1) { animation-delay: 0s; }
+  .palette span:nth-child(2) { animation-delay: 0.15s; }
+  .palette span:nth-child(3) { animation-delay: 0.3s; }
+  .palette span:nth-child(4) { animation-delay: 0.45s; }
+  .palette span:nth-child(5) { animation-delay: 0.6s; }
 }
